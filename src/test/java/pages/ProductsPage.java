@@ -27,10 +27,4 @@ public class ProductsPage extends BasePage {
         By addToCart = By.xpath(ADD_TO_CART_BUTTON_PATTERN.formatted(GoodsName));
         driver.findElement(addToCart).click();
     }
-
-   /* public void addToCart(int GoodsName) {
-        By addToCart = By.xpath(
-                String.format(ADD_TO_CART_BUTTON_PATTERN, GoodsName));
-        driver.findElements(ADD_TO_CART_BUTTON).get(GoodsIndex).click();
-    }*/
 }
