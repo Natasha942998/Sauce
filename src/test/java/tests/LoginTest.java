@@ -12,7 +12,6 @@ import java.time.Duration;
 
 public class LoginTest extends BaseTest {
     @Test
-
     public void chekCorrectLogin() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         loginPage.open();
