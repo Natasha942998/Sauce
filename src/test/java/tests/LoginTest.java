@@ -34,5 +34,5 @@ public class LoginTest extends BaseTest {
         loginPage.open();
         loginPage.loginThryZip(user, password);
         assertEquals(loginPage.chekErrorMsg(), ErrorMsg);
-  }
+    }
 }
