@@ -17,6 +17,10 @@ public class LoginPage extends BasePage {
         driver.get(BASE_URL);
     }
 
+    public void open(String url) {
+        driver.get(BASE_URL + url);
+    }
+
     public void loginThryZip(String login, String password) {
         fillLoginField(login);
         fillPasswordField(password);
