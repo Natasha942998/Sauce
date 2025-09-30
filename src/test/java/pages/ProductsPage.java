@@ -32,6 +32,7 @@ public class ProductsPage extends BasePage {
 
     public void addToCart(int GoodsIndex) {
         driver.findElements(ADD_TO_CART_BUTTON).get(GoodsIndex).click();
+
     }
 
     public String checkGoodsCountToBadge() {
@@ -39,12 +40,16 @@ public class ProductsPage extends BasePage {
                 ExpectedConditions.visibilityOfElementLocated(CART_TO_BADGE)).getText();
     }
 
-    public boolean getProductName(String ProductName){
+    public boolean getProductName(String ProductName) {
         return driver.findElement(PRODUCT_NAME_PATTERN).isDisplayed();
     }
 
     public String getCountProducts() {
         return wait.until(
                 ExpectedConditions.visibilityOfElementLocated(CART_TO_BADGE)).getText();
+    }
+
+    public void openCart() {
+        driver.findElement(By.xpath("//*[@data-test='shopping-cart-link']")).click();
     }
 }
