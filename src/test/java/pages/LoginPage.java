@@ -2,10 +2,10 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import user.User;
 
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
-
         super(driver);
     }
 
@@ -22,9 +22,9 @@ public class LoginPage extends BasePage {
         driver.get(BASE_URL + url);
     }
 
-    public void loginThryZip(String login, String password) {
-        fillLoginField(login);
-        fillPasswordField(password);
+    public void login(User user) {
+        fillLoginField(user.getEmail());
+        fillPasswordField(user.getPasswordl());
         clickSubmit();
     }
 
