@@ -30,9 +30,9 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(dataProvider = "loginData")
-    public void chekIncorrectLogin(String user, String password, String ErrorMsg) throws InterruptedException {
+    public void chekIncorrectLogin(String user, String password, String errorMsg) throws InterruptedException {
         loginPage.open();
         loginPage.loginThryZip(user, password);
-        assertEquals(loginPage.chekErrorMsg(), ErrorMsg);
+        assertEquals(loginPage.chekErrorMsg(), errorMsg);
     }
 }
