@@ -25,12 +25,12 @@ public class ProductsPage extends BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(title2)).isDisplayed();
     }
 
-    public void addToCart(String GoodsName) {
-        By addToCart = By.xpath(ADD_TO_CART_BUTTON_PATTERN.formatted(GoodsName));
+    public void addToCart(String goodsName) {
+        By addToCart = By.xpath(ADD_TO_CART_BUTTON_PATTERN.formatted(goodsName));
         driver.findElement(addToCart).click();
     }
 
-    public void addToCart(int GoodsIndex) {
+    public void addToCart(int goodsIndex) {
         driver.findElements(ADD_TO_CART_BUTTON).get(GoodsIndex).click();
     }
 
@@ -39,7 +39,7 @@ public class ProductsPage extends BasePage {
                 ExpectedConditions.visibilityOfElementLocated(CART_TO_BADGE)).getText();
     }
 
-    public boolean getProductName(String ProductName){
+    public boolean getProductName(String productName){
         return driver.findElement(PRODUCT_NAME_PATTERN).isDisplayed();
     }
 
