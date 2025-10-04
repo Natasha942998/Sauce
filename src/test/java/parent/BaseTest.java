@@ -1,5 +1,6 @@
 package parent;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -45,7 +46,7 @@ public class BaseTest {
         user = PropertyReader.getProperty("sauce.user");
         password = PropertyReader.getProperty("sauce.password");
     }
-
+    @Step("Закрытие браузера")
     @AfterMethod
     public void close() {
         driver.quit();
