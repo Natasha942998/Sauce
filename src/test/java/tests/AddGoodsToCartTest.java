@@ -48,7 +48,7 @@ public class AddGoodsToCartTest extends BaseTest {
     public void checkAddToCart() throws InterruptedException {
         loginPage.open();
         loginPage.login(UserFactory.withAdminPermission());
-        Assert.assertTrue(productsPage.isTitlePresent());
+        assertTrue(productsPage.isTitlePresent());
         productsPage.addToCart(0);
         productsPage.addToCart(1);
         productsPage.addToCart(2);
