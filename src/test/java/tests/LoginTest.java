@@ -35,9 +35,9 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(dataProvider = "loginData")
-    public void chekIncorrectLogin(User user, String ErrorMsg) throws InterruptedException {
+    public void chekIncorrectLogin(User user, String errorMsg) throws InterruptedException {
         loginPage.open();
         loginPage.login(user);
-        assertEquals(loginPage.chekErrorMsg(), ErrorMsg);
+        assertEquals(loginPage.chekErrorMsg(), errorMsg);
     }
 }
