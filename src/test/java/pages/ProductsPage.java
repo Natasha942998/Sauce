@@ -37,6 +37,7 @@ public class ProductsPage extends BasePage {
     public void addToCart(int goodsIndex) {
         driver.findElements(ADD_TO_CART_BUTTON).get(goodsIndex).click();
 
+        driver.findElements(ADD_TO_CART_BUTTON).get(GoodsIndex).click();
     }
 
     public String checkGoodsCountToBadge() {
@@ -45,6 +46,7 @@ public class ProductsPage extends BasePage {
     }
 
     public boolean getProductName(String productName) {
+    public boolean getProductName(String productName){
         return driver.findElement(PRODUCT_NAME_PATTERN).isDisplayed();
     }
 

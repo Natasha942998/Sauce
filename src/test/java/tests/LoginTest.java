@@ -38,6 +38,9 @@ public class LoginTest extends BaseTest {
     public void chekIncorrectLogin(User user, String errorMsg) throws InterruptedException {
         loginPage.open();
         loginPage.login(user);
+    public void chekIncorrectLogin(String user, String password, String errorMsg) throws InterruptedException {
+        loginPage.open();
+        loginPage.loginThryZip(user, password);
         assertEquals(loginPage.chekErrorMsg(), errorMsg);
     }
 }
