@@ -1,7 +1,9 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import user.User;
 
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
@@ -13,6 +15,7 @@ public class LoginPage extends BasePage {
     private static final By LOGIN_BTN = By.id("login-button");
     private static final By ERROR = By.xpath("//*[@data-test='error']");
 
+    @Step("Открытие браузера")
     public void open() {
         driver.get(BASE_URL);
     }
@@ -21,9 +24,10 @@ public class LoginPage extends BasePage {
         driver.get(BASE_URL + url);
     }
 
-    public void loginThryZip(String login, String password) {
-        fillLoginField(login);
-        fillPasswordField(password);
+    @Step("Логинимся под кредами пользователя")
+    public void login(User user) {
+        fillLoginField(user.getEmail());
+        fillPasswordField(user.getPasswordl());
         clickSubmit();
     }
 

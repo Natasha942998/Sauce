@@ -7,6 +7,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import parent.BaseTest;
+import user.User;
+import user.UserFactory;
+import utils.PropertyReader;
 
 import java.time.Duration;
 
@@ -15,7 +18,7 @@ public class LoginTest extends BaseTest {
     public void chekCorrectLogin() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         loginPage.open();
-        loginPage.loginThryZip("standard_user", "secret_sauce");
+        loginPage.login(UserFactory.withAdminPermission());
         assertTrue(productsPage.isTitlePresent());
         assertEquals(productsPage.getTitle(), "Products");
     }
@@ -23,13 +26,18 @@ public class LoginTest extends BaseTest {
     @DataProvider()
     public Object[][] loginData() {
         return new Object[][]{
-                {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
-                {"", "secret_sauce", "Epic sadface: Username is required"},
-                {"standard_user", "", "Epic sadface: Password is required"},
+                {UserFactory.withLockedUserPermission(), PropertyReader.getProperty("locked.error_msg")},
+                {UserFactory.withEmptyUserPermission(), PropertyReader.getProperty("empty_login.error_msg")},
+                {UserFactory.withEmptyPasswordPermission(), PropertyReader.getProperty("empty_password.error_msg")},
+                {UserFactory.withInCorrectUserPermission(), PropertyReader.getProperty("incorrect_data.error_msg")},
+                {UserFactory.withInCorrectPasswordPermission(), PropertyReader.getProperty("incorrect_data.error_msg")},
         };
     }
 
     @Test(dataProvider = "loginData")
+    public void chekIncorrectLogin(User user, String errorMsg) throws InterruptedException {
+        loginPage.open();
+        loginPage.login(user);
     public void chekIncorrectLogin(String user, String password, String errorMsg) throws InterruptedException {
         loginPage.open();
         loginPage.loginThryZip(user, password);
