@@ -14,7 +14,7 @@ import utils.PropertyReader;
 import java.time.Duration;
 
 public class LoginTest extends BaseTest {
-    @Test
+    @Test(description = "Проверка корректной авторизации")
     public void chekCorrectLogin() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         loginPage.open();
