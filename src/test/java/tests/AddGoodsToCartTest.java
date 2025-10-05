@@ -37,7 +37,7 @@ public class AddGoodsToCartTest extends BaseTest {
     public void checkAddProductsToCart(int count) {
         loginPage.open();
         loginPage.login(UserFactory.withAdminPermission());
-        Assert.assertTrue(productsPage.isTitlePresent());
+        assertTrue(productsPage.isTitlePresent());
         for (int i = 0; i < count; i++) {
             productsPage.addToCart(0);
         }
@@ -53,7 +53,7 @@ public class AddGoodsToCartTest extends BaseTest {
         productsPage.addToCart(1);
         productsPage.addToCart(2);
         productsPage.openCart();
-        assertTrue(cartPage.getProductsNames().contains("Soauce Labs Backpack"));
+        assertTrue(cartPage.getProductsNames().contains("Sauce Labs Backpack"));
         assertEquals(cartPage.getProductsNames().size(), 3);
         assertFalse(cartPage.getProductsNames().isEmpty());
     }
