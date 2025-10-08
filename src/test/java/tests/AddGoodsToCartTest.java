@@ -37,7 +37,7 @@ public class AddGoodsToCartTest extends BaseTest {
     public void checkAddProductsToCart(int count) {
         loginPage.open();
         loginPage.login(UserFactory.withAdminPermission());
-        Assert.assertTrue(productsPage.isTitlePresent());
+        assertTrue(productsPage.isTitlePresent());
         for (int i = 0; i < count; i++) {
             productsPage.addToCart(0);
         }

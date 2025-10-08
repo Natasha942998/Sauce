@@ -14,7 +14,7 @@ import utils.PropertyReader;
 import java.time.Duration;
 
 public class LoginTest extends BaseTest {
-    @Test
+    @Test(description = "Проверка корректной авторизации")
     public void chekCorrectLogin() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         loginPage.open();
@@ -38,9 +38,6 @@ public class LoginTest extends BaseTest {
     public void chekIncorrectLogin(User user, String errorMsg) throws InterruptedException {
         loginPage.open();
         loginPage.login(user);
-    public void chekIncorrectLogin(String user, String password, String errorMsg) throws InterruptedException {
-        loginPage.open();
-        loginPage.loginThryZip(user, password);
-        assertEquals(loginPage.chekErrorMsg(), errorMsg);
+    assertEquals(loginPage.chekErrorMsg(), errorMsg);
     }
 }
